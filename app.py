@@ -25,7 +25,9 @@ def create_tables():
 def create_user():
     data = request.json
     new_user = User(username=data['username'])
+    password_user =User(password=data['password'])
     db.session.add(new_user)
+    db.session.add(password_user)
     db.session.commit()
     return jsonify({"message": "User created"}), 201
 
